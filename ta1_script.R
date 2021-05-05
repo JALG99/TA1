@@ -40,3 +40,17 @@ barplot(counts2, col=c("blue","red","green"), legend = c("Cancelado", "Check-out
 #Esta gráfica nos ayuda a revisar por el estado de la reservación que tipo de deposito predomina y notamos algo increible, en el caso de los que no hacen ningún depósito la gran mayoría
 #termina completando su estadía y retirandose, sin embargo en los realizan un depósito completo que no tiene lugar a devoluciones se ve que predomina por mucho la cantidad de clientes
 #que cancelaron.
+
+counts3 =  table(hotel.booking$is_canceled, hotel.booking$hotel)
+barplot(counts3, col=c("blue","red"), legend = c("Continuaron", "Cancelado"), main = "Cancelacion de reserva por tipo de hotel")
+#Esta grafica nos permite ver en tipo de hotel hay mas cancelaciones.
+
+table(hotel.booking$arrival_date_month)
+barplot(table(hotel.booking$arrival_date_month), main = "Meses que mas llegan al hotel", names= c("April", "August", "December", "February", "January", "July", "June", "March", "May", "November", "October", "September"))
+#Esta grafica nos ayuda a ver el volumen de usuarios por cada mes y de esta manera estar mas preparados para cuando los meses de mayor afluencia.
+
+
+
+
+
+
