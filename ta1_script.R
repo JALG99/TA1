@@ -2,12 +2,17 @@
 hotel.booking = read.csv("./Datos/hotel_bookings.csv", header = TRUE, sep = ",")
 
 #INSPECCIONAR DATOS
+
+#Ver todos los datos del dataframe
 View(hotel.booking)
 
+#Ver las 5 primeros filas del dataframe
 head(hotel.booking, 5)
 
+#Ver las 5 ultimas filas del dataframe
 tail(hotel.booking, 5)
 
+#Ver nombres de las columnas del dataframe
 names(hotel.booking)
 
 str(hotel.booking)
