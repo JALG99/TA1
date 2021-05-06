@@ -49,6 +49,9 @@ table(hotel.booking$arrival_date_month)
 barplot(table(hotel.booking$arrival_date_month), main = "Meses que mas llegan al hotel", names= c("April", "August", "December", "February", "January", "July", "June", "March", "May", "November", "October", "September"))
 #Esta grafica nos ayuda a ver el volumen de usuarios por cada mes y de esta manera estar mas preparados para cuando los meses de mayor afluencia.
 
+counts4=table(hotel.booking$is_repeated_guest,hotel.booking$market_segment)
+barplot(counts4,col = c("blue","green"),legend=c("No Constante","Constante"),main="Constancia cliente por segmento de mercado")
+# Esta grafica permite observar que tipo de segmento de mercado es mas constante o repetitivo(siendo en este caso con un mayor porcentaje el corporativo).
 
 
 
