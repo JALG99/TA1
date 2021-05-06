@@ -2,12 +2,17 @@
 hotel.booking = read.csv("./Datos/hotel_bookings.csv", header = TRUE, sep = ",")
 
 #INSPECCIONAR DATOS
+
+#Ver todos los datos del dataframe
 View(hotel.booking)
 
+#Ver las 5 primeros filas del dataframe
 head(hotel.booking, 5)
 
+#Ver las 5 ultimas filas del dataframe
 tail(hotel.booking, 5)
 
+#Ver nombres de las columnas del dataframe
 names(hotel.booking)
 
 str(hotel.booking)
@@ -40,3 +45,20 @@ barplot(counts2, col=c("blue","red","green"), legend = c("Cancelado", "Check-out
 #Esta gráfica nos ayuda a revisar por el estado de la reservación que tipo de deposito predomina y notamos algo increible, en el caso de los que no hacen ningún depósito la gran mayoría
 #termina completando su estadía y retirandose, sin embargo en los realizan un depósito completo que no tiene lugar a devoluciones se ve que predomina por mucho la cantidad de clientes
 #que cancelaron.
+
+counts3 =  table(hotel.booking$is_canceled, hotel.booking$hotel)
+barplot(counts3, col=c("blue","red"), legend = c("Continuaron", "Cancelado"), main = "Cancelacion de reserva por tipo de hotel")
+#Esta grafica nos permite ver en tipo de hotel hay mas cancelaciones.
+
+table(hotel.booking$arrival_date_month)
+barplot(table(hotel.booking$arrival_date_month), main = "Meses que mas llegan al hotel", names= c("April", "August", "December", "February", "January", "July", "June", "March", "May", "November", "October", "September"))
+#Esta grafica nos ayuda a ver el volumen de usuarios por cada mes y de esta manera estar mas preparados para cuando los meses de mayor afluencia lleguen.
+
+counts4=table(hotel.booking$is_repeated_guest,hotel.booking$market_segment)
+barplot(counts4,col = c("blue","green"),legend=c("No Constante","Constante"),main="Constancia cliente por segmento de mercado")
+# Esta grafica permite observar que tipo de segmento de mercado es mas constante o repetitivo(siendo en este caso con un mayor porcentaje el corporativo).
+
+
+
+
+
