@@ -35,34 +35,33 @@ summary(hotel.booking)
 #Finalmente comprobamos que los datos est谩n correctos y podemos proceder con el an谩lisis y selecci贸n
 #de visualizaciones.
 
-str(hotel.booking)
-
-summary(hotel.booking)
-#Finalmente comprobamos que los datos est谩n correctos en cuanto al tiempo y podemos proceder con el an谩lisis y selecci贸n
-#de visualizaciones.
 
 #VISUALIZACIONES
 counts = table(hotel.booking$customer_type, hotel.booking$reserved_room_type)
-barplot(counts, col=c("green","yellow","blue","red"), legend = c("Contrato", "Grupo", "Transitorio", "Transitorio asociado"), main = "Tipo de cliente por habitaci贸n reservada")
-#Esta gr谩fica nos ayuda a verificar dos cosas, primero cuales son los tipos de habitaci贸n m谩s reservados en relaci贸n con el tipo de cliente, vemos que en todos los tipos de habitaci贸n
+barplot(counts, col=c("green","yellow","blue","red"), legend = c("Contrato", "Grupo", "Transitorio", "Transitorio asociado"), main = "Tipo de cliente por habitaci髇 reservada")
+table(hotel.booking$customer_type, hotel.booking$reserved_room_type)
+#Esta gr谩fica nos ayuda a verificar dos cosas, primero cuales son los tipos de habitaci髇 m醩 reservados en relaci髇 con el tipo de cliente, vemos que en todos los tipos de habitaci贸n
 #predomina el transitorio, adem谩s nos permite conocer los tipos de habitaci贸n m谩s solicitadas en las reservas, notando una clara victoria por parte del tipo A seguido del tipo D.
 
 counts2 = table(hotel.booking$reservation_status, hotel.booking$deposit_type)
-barplot(counts2, col=c("blue","red","green"), legend = c("Cancelado", "Check-out", "No se muestra"), main = "Estado de la reservaci贸n por el tipo de deposito")
+barplot(counts2, col=c("blue","red","green"), legend = c("Cancelado", "Check-out", "No se muestra"), main = "Estado de la reservaci髇 por el tipo de deposito")
+table(hotel.booking$reservation_status, hotel.booking$deposit_type)
 #Esta gr谩fica nos ayuda a revisar por el estado de la reservaci贸n que tipo de deposito predomina y notamos algo increible, en el caso de los que no hacen ning煤n dep贸sito la gran mayor铆a
 #termina completando su estad铆a y retirandose, sin embargo en los realizan un dep贸sito completo que no tiene lugar a devoluciones se ve que predomina por mucho la cantidad de clientes
 #que cancelaron.
 
+table(hotel.booking$is_canceled, hotel.booking$hotel)
 counts3 =  table(hotel.booking$is_canceled, hotel.booking$hotel)
 barplot(counts3, col=c("blue","red"), legend = c("Continuaron", "Cancelado"), main = "Cancelacion de reserva por tipo de hotel")
 #Esta grafica nos permite ver en tipo de hotel hay mas cancelaciones.
 
 table(hotel.booking$arrival_date_month)
-barplot(table(hotel.booking$arrival_date_month), main = "Meses que mas llegan al hotel", names= c("April", "August", "December", "February", "January", "July", "June", "March", "May", "November", "October", "September"))
+barplot(table(hotel.booking$arrival_date_month), main = " Reservas totales por mes", names= c("Apr", "Aug", "Dec", "Feb", "Jan", "Jul", "Jun", "Mar", "May", "Nov", "Oct", "Sep"))
 #Esta grafica nos ayuda a ver el volumen de usuarios por cada mes y de esta manera estar mas preparados para cuando los meses de mayor afluencia lleguen.
 
 counts4=table(hotel.booking$is_repeated_guest,hotel.booking$market_segment)
-barplot(counts4,col = c("blue","green"),legend=c("No Constante","Constante"),main="Constancia cliente por segmento de mercado")
+barplot(counts4,col = c("blue","green"),legend=c("No Constante","Constante"),main="Clientes frecuentes por origen de la reserva")
+table(hotel.booking$is_repeated_guest,hotel.booking$market_segment)
 # Esta grafica permite observar que tipo de segmento de mercado es mas constante o repetitivo(siendo en este caso con un mayor porcentaje el corporativo).
 
 
